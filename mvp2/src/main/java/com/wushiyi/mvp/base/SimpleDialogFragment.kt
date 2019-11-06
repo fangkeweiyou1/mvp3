@@ -15,6 +15,7 @@ import com.wushiyi.util.DisplayUtil
 
 /**
  * Created by zhangyuncai on 2019/7/3.
+ * dialogfragment样例基类
  */
 open abstract class SimpleDialogFragment : DialogFragment(), LoadMvpView, View.OnClickListener {
     lateinit var mActivity: Activity
