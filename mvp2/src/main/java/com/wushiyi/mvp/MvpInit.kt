@@ -10,7 +10,7 @@ import timber.log.Timber
 /**
  * Created by zhangyuncai on 2019/6/29.
  */
-object MvpInit {
+object MvpInit { 
     //APP域名根地址(可以作参考)
     var baseUrl = ""
     var isDebug=true
