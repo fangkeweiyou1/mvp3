@@ -8,18 +8,18 @@ import android.support.v4.app.FragmentPagerAdapter
  * Created by zhangyuncai on 2019/6/17.
  * 通用型fragmentadapter
  */
-open class BaseFragmentPagerAdapter constructor(fm: FragmentManager, var mFragmentList: MutableList<Fragment>) : FragmentPagerAdapter(fm) {
+open class BaseFragmentPagerAdapter<T :Fragment> constructor(fm: FragmentManager, var mFragmentList: MutableList<T>) : FragmentPagerAdapter(fm) {
     var titles: MutableList<String>? = mutableListOf<String>()
 
     /**
      * @param mFragmentList fragment集合
      * @param titles tab标题集合
      */
-    constructor(fm: FragmentManager, mFragmentList: MutableList<Fragment>, titles: MutableList<String>?) : this(fm, mFragmentList) {
+    constructor(fm: FragmentManager, mFragmentList: MutableList<T>, titles: MutableList<String>?) : this(fm, mFragmentList) {
         this.titles = titles
     }
 
-    override fun getItem(p0: Int): Fragment {
+    override fun getItem(p0: Int): T {
         return mFragmentList[p0]
     }
 
