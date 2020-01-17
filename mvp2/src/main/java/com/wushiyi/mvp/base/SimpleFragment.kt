@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.WeakReference
 
 /**
  * Created by zhangyuncai on 2019/6/24.
@@ -21,6 +22,7 @@ open abstract class SimpleFragment : Fragment(), View.OnClickListener, LoadMvpVi
     var hasFetchData = false// 标识已经触发过懒加载数据
     val composite = CompositeDisposable()//销毁异步
     lateinit var rootView: View
+    lateinit var activityWeakReference: WeakReference<Activity>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(getLayoutId(), container, false)
@@ -72,6 +74,7 @@ open abstract class SimpleFragment : Fragment(), View.OnClickListener, LoadMvpVi
         super.onAttach(context)
         mContext = context
         mActivity = context as Activity
+        activityWeakReference = WeakReference(mActivity)
     }
 
     /**
